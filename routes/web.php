@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\MangaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,5 +22,7 @@ Route::middleware([
 Route::get('/user/{id}', [UserController::class, 'show']);
 Route::get('/users', [UserController::class, 'index']);
 
-Route::get('/genre/manga/fetch', [GenreController::class, 'fetch']);
+Route::get('/fetch/genre', [GenreController::class, 'fetch']);
+Route::get('/fetch/manga', [MangaController::class, 'fetch']);
+
 Route::get('/genre/manga', [GenreController::class, 'indexManga']);
