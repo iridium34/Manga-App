@@ -11,7 +11,7 @@
                 <ul>
                     @foreach ($genres as $genre)
                     <li class="text-white">
-                        {{ $genre['name'] }}
+                        {{$genre['name'] }} {{$genre['count'] }} 
                     </li>
                     @endforeach
                 </ul>

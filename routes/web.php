@@ -21,4 +21,5 @@ Route::middleware([
 Route::get('/user/{id}', [UserController::class, 'show']);
 Route::get('/users', [UserController::class, 'index']);
 
+Route::get('/genre/manga/fetch', [GenreController::class, 'fetch']);
 Route::get('/genre/manga', [GenreController::class, 'indexManga']);
