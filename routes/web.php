@@ -17,12 +17,15 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/user/{id}', [UserController::class, 'show']);
+    Route::get('/users', [UserController::class, 'index']);
+
+    Route::get('/fetch/genre', [GenreController::class, 'fetch']);
+    Route::get('/fetch/manga', [MangaController::class, 'fetch']);
+
+    Route::get('/genre/manga', [GenreController::class, 'indexManga'])->name('genre/manga');
+    Route::get('/mangas', [MangaController::class, 'indexManga'])->name('mangas');
 });
 
-Route::get('/user/{id}', [UserController::class, 'show']);
-Route::get('/users', [UserController::class, 'index']);
 
-Route::get('/fetch/genre', [GenreController::class, 'fetch']);
-Route::get('/fetch/manga', [MangaController::class, 'fetch']);
-
-Route::get('/genre/manga', [GenreController::class, 'indexManga']);

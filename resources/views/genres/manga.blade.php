@@ -8,13 +8,19 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-primary overflow-hidden shadow-xl p-6">
+                <div class="text-white">
+                    {{ $genres->links() }}
+                </div>
                 <ul>
                     @foreach ($genres as $genre)
                     <li class="text-white">
-                        {{$genre['name'] }} {{$genre['count'] }} 
+                        {{$genre->name }} {{$genre->count }}
                     </li>
                     @endforeach
                 </ul>
+                <div class="text-white">
+                    {{ $genres->links() }}
+                </div>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use GuzzleHttp\Client;
 use App\Models\GenreManga;
 use App\Models\Fetch;
+use Illuminate\Support\Facades\DB;
 
 class GenreController extends Controller
 {
@@ -37,7 +38,7 @@ class GenreController extends Controller
     public function indexManga(): View
     {
         return view('genres.manga', [
-            'genres' => GenreManga::all()
+            'genres' => DB::table('genres_manga')->paginate(10)
         ]);
     }
 }

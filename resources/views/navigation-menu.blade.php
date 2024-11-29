@@ -15,6 +15,12 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('genre/manga') }}" :active="request()->routeIs('genre/manga')">
+                        {{ __('Manga Genres') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('mangas') }}" :active="request()->routeIs('mangas')">
+                        {{ __('Mangas') }}
+                    </x-nav-link>
                 </div>
             </div>
 

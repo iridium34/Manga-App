@@ -49,4 +49,10 @@ class MangaController extends Controller
         return "FETCH DONE";
 
     }
+    public function indexManga(): View {
+        return view('mangas.index', [
+            'mangas' => Manga::paginate(12)
+        ]);
+    }
+
 }
