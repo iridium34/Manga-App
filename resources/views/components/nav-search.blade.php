@@ -1,4 +1,4 @@
-<form class="flex items-center max-w-sm mx-auto" method="get" action="{{ url("search/{{ id }}") }}">
+<form class="flex items-center max-w-sm mx-auto" method="get" action="{{!! url("search/{{ id }}") !!}}">
     <label for="simple-search" class="sr-only">Search</label>
     <div class="relative w-full">
         <input type="text" id="simple-search" class="h-10 bg-gray-50 border border-r-0 dark:border-r-0 border-gray-300 text-gray-900 text-sm rounded-s-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-pickled-bluewood-950 dark:border-pickled-bluewood-800 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gold-500 dark:focus:border-gold-500" placeholder="Search ..." required />

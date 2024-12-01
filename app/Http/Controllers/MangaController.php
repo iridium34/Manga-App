@@ -57,7 +57,7 @@ class MangaController extends Controller
         ]);
     }
 
-    public function search(string $query): View {
+    public function search(string $id): View {
 
         return view('mangas.search', [
             ''
