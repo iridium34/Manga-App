@@ -24,6 +24,15 @@
                 </div>
             </div>
 
+            <!-- Search -->
+            <div class="sm:flex sm:items-center sm:ms-6">
+                <div class="ms-3 relative">
+                    <div class="end-0 origin-top-right">
+                        <x-nav-search/>
+                    </div>
+                </div>
+            </div>
+
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())

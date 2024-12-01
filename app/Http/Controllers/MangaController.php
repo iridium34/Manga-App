@@ -10,6 +10,8 @@ use App\Models\Fetch;
 
 class MangaController extends Controller
 {
+    public $query = "";
+
     public function fetch()
     {
         $client = new Client(['base_uri' => 'https://api.jikan.moe/v4/', 'timeout' => 2.0]);
@@ -52,6 +54,13 @@ class MangaController extends Controller
     public function indexManga(): View {
         return view('mangas.index', [
             'mangas' => Manga::paginate(12)
+        ]);
+    }
+
+    public function search(string $query): View {
+
+        return view('mangas.search', [
+            ''
         ]);
     }
 

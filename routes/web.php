@@ -26,6 +26,10 @@ Route::middleware([
 
     Route::get('/genre/manga', [GenreController::class, 'indexManga'])->name('genre/manga');
     Route::get('/mangas', [MangaController::class, 'indexManga'])->name('mangas');
+
+    Route::controller(MangaController::class)->group(function(){
+        Route::get('search/{id}', 'search');
+    });
 });
 
 
