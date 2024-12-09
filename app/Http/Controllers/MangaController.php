@@ -15,7 +15,7 @@ class MangaController extends Controller
 
     public function fetch()
     {
-        $client = new Client(['base_uri' => 'https://api.jikan.moe/v4/', 'timeout' => 2.0]);
+        $client = new Client(['base_uri' => 'https://api.jikan.moe/v4/', 'timeout' => 5.0]);
 
         $response = $client->request('GET', 'manga');
 
@@ -61,7 +61,7 @@ class MangaController extends Controller
     public function search(Request $request): View {
         $request->query('q');
 
-        $client = new Client(['base_uri' => 'https://api.jikan.moe/v4/', 'timeout' => 2.0]);
+        $client = new Client(['base_uri' => 'https://api.jikan.moe/v4/', 'timeout' => 5.0]);
         $response = $client->request('GET', 'manga?q='.$request->q);
         $mangas = json_decode($response->getBody()->getContents(), true)['data'];
 
