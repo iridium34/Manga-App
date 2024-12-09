@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Log;
 use GuzzleHttp\Client;
 use App\Models\Manga;
 use App\Models\Fetch;
@@ -57,11 +58,14 @@ class MangaController extends Controller
         ]);
     }
 
-    public function search(string $id): View {
+    public function search(Request $request): View {
+        $request->query('q');
 
-        return view('mangas.search', [
-            ''
-        ]);
+        $client = new Client(['base_uri' => 'https://api.jikan.moe/v4/', 'timeout' => 2.0]);
+        $response = $client->request('GET', 'manga?q='.$request->q);
+        $mangas = json_decode($response->getBody()->getContents(), true)['data'];
+
+        return view('mangas.search', compact('mangas'));
     }
 
 }
