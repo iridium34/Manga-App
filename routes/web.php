@@ -29,6 +29,7 @@ Route::middleware([
 
     Route::controller(MangaController::class)->group(function(){
         Route::get('/search', 'search')->name('search.manga');
+        Route::get('/manga/{id}', 'showManga')->name('manga.show');
     });
 });
 

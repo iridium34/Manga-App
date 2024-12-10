@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Log;
 use GuzzleHttp\Client;
 use App\Models\Manga;
+use App\Models\OwnManga;
 use App\Models\Fetch;
 
 class MangaController extends Controller
@@ -65,7 +66,25 @@ class MangaController extends Controller
         $response = $client->request('GET', 'manga?q='.$request->q);
         $mangas = json_decode($response->getBody()->getContents(), true)['data'];
 
-        return view('mangas.search', compact('mangas'));
+        return view('mangas.search', ['mangas' => $mangas, 'query' => $request->q])->with(compact('mangas'));
     }
+
+    public function showManga(string $id): View {
+
+        Log::debug('Reached this point');
+
+        $client = new Client(['base_uri' => 'https://api.jikan.moe/v4/', 'timeout' => 5.0]);
+        $response = $client->request('GET', 'manga/'.$id);
+        $mangas = json_decode($response->getBody()->getContents(), true)['data'];
+
+        return view('mangas.show', [
+            'mangas' => $mangas
+        ])->with(compact('mangas'));
+    }
+
+    public function addOwnManga(Request $request): View {
+        $request->query('id');
+
+}
 
 }

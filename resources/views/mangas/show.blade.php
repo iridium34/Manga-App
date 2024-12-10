@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-secondary leading-tight">
-            {{ __('Manga Search') }} - <span class="text-tertiary">{{ $query }}</span>
+            {{ __('Manga Show') }}
         </h2>
     </x-slot>
 
@@ -12,14 +12,9 @@
                 <div class="grid grid-cols-4 py-4 gap-8">
                     @foreach ($mangas as $manga)
                     <div class="text-black">
-                        <div class="">
-                            <img class="w-full" src="{{ $manga['images']['webp']['image_url'] }}" alt="{{ $manga['title'] }}">
-                        </div>
                         <div class="bg-secondary p-2">
                             
-                            <p class="text-lg font-bold">{{$manga['title'] }}</p>
-                            <p>Bänder: {{$manga['volumes'] }}</p>
-                            <p>Kapitel: {{$manga['chapters'] }}</p>
+                            <p class="text-lg font-bold">{{ $mangas }}</p>
                         </div>
                     </div>
                     @endforeach
